@@ -2,11 +2,8 @@ import { Router } from "express";
 
 const router = Router();
 
-import Task from "../models/Task.js";
+import { getTasks } from "../controllers/task.controller.js";
 
-router.get("/task", async (req, res) => {
-  const tasks = await Task.find();
-  res.json(tasks);
-});
+router.get("/task", getTasks);
 
 export default router;
