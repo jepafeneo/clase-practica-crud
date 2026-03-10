@@ -1,11 +1,15 @@
 import express from "express";
-import './db.js'
+import "./db.js";
+
+import taskRouter from "./routes/task.router.js";
 
 const app = express();
 
 app.get("/", (req, res) => {
   res.json({ message: "Bienvenidos a la API" });
 });
+
+app.use(taskRouter);
 
 const PORT = process.env.PORT || 5000;
 
